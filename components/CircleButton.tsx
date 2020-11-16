@@ -1,28 +1,23 @@
 import React from 'react';
-import {StyleSheet,View,Text} from 'react-native';
+import {View,Text, TouchableHighlight} from 'react-native';
 
-export default function CircleButton() {
+type props = {
+  wholeStyle:Object,
+  textStyle:Object,
+  onPress:any,
+  children:string
+}
+
+export default function CircleButton(props:props) {
+
   return (
-    <View style={styles.circleButton} >
-      <Text style={styles.circleButtonItem} >+</Text>
-    </View>
-
+    <TouchableHighlight 
+      style={props.wholeStyle}
+      onPress={props.onPress} >
+      <View >
+  <Text style={props.textStyle}>{props.children}</Text>
+      </View>
+    </TouchableHighlight>
   )
 }
 
-const styles = StyleSheet.create({
-  circleButton:{
-    position:'absolute',
-    right:32,
-    bottom:32,
-    width:80,
-    height:80,
-    backgroundColor:'#E31676',
-    borderRadius:48,
-    justifyContent:'center',
-    alignItems:'center',
-  },
-  circleButtonItem:{
-    fontSize:48,
-  },
-})

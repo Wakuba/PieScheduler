@@ -1,14 +1,27 @@
-import React from 'react';
+import React , { useState }from 'react';
 import { SafeAreaView,StyleSheet} from 'react-native';
-import CircleButton from '../components/CircleButton';
-import PickerTabScreen from '../screens/PickerTabScreen';
-
+import PickerTabBoard from '../components/PickerTabBoard';
+import {ButtonBoard} from '../components/ButtonBoard'
 
 export const ScheduleEditScreen = () => {
+  
+  let initialNumber = 1
+  const [tabNumber, setTabNumber] = useState(initialNumber);
+
+  const createNewTab = () => {
+    setTabNumber(prevNumber => {return prevNumber +1 ;})
+}
+  const deleteLastTab = () => {
+    setTabNumber(prevNumber => prevNumber -1)
+  }
+
   return (
     <SafeAreaView style={styles.container} >
-     <PickerTabScreen/>
-     <CircleButton/>
+      <PickerTabBoard tabNumber = {tabNumber}/>
+      <ButtonBoard 
+        onPressPlus={createNewTab} 
+        onPressMinus={deleteLastTab}
+        />
     </SafeAreaView>
   
   );
@@ -21,5 +34,4 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
   },
-  
 })

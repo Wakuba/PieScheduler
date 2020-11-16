@@ -5,7 +5,7 @@ import styled, { ThemeProvider } from "styled-components/native";
 import { darkTheme, lightTheme } from "../themes";
 
 
-export const HomeClockScreen = ({navigation}) => {
+export const HomeClockScreen = (props) => {
   const theme = useColorScheme() === "dark" ? darkTheme : lightTheme;
 
   
@@ -18,7 +18,7 @@ export const HomeClockScreen = ({navigation}) => {
           centerContent={true}
           contentInsetAdjustmentBehavior="automatic">
           <Clock 
-          onPress={() => {return navigation.navigate('Edit');}} />
+          onPress={() => {return props.navigation.navigate('Edit');}} />
           
         </ScrollView>
       </SafeAreaView>

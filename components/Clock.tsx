@@ -15,7 +15,7 @@ const radius = diameter / 2;
 const hourTickCount = 24;
 
 
-export const Clock = ({onPress}) => {
+export const Clock = (onPress:any) => {
   let [time, setTime] = useState(getTime);
 
   useInterval(() => {
