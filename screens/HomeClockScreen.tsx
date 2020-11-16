@@ -18,7 +18,7 @@ export const HomeClockScreen = (props) => {
           centerContent={true}
           contentInsetAdjustmentBehavior="automatic">
           <Clock 
-          onPress={() => {return props.navigation.navigate('Edit');}} />
+          onPress={() => props.navigation.navigate('Edit')} />
           
         </ScrollView>
       </SafeAreaView>

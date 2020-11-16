@@ -15,7 +15,7 @@ const radius = diameter / 2;
 const hourTickCount = 24;
 
 
-export const Clock = (onPress:any) => {
+export const Clock = (props) => {
   let [time, setTime] = useState(getTime);
 
   useInterval(() => {
@@ -54,7 +54,7 @@ export const Clock = (onPress:any) => {
       />
     </Svg>
     <Button
-      onPress={onPress}
+      onPress={props.onPress}
       title="編集"
       style={styles.button}
       accessibilityLabel="Learn more about this purple button"
