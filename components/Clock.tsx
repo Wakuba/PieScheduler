@@ -26,15 +26,7 @@ export const Clock = (props) => {
   return (
     <View>
     <Svg height={width} width={width}>
-      <VictoryPie  innerRadius={105} data={[
-      { x: "睡眠", y: 7},
-      { x: "身支度", y: 1 },
-      { x: "座学", y: 2 },
-      { x: "実習", y: 4 },
-      { x: "レポート作成", y: 2 },
-      { x: "部活", y: 3 },
-      { x: "自由", y: 5 }
-  ]}/>
+      <VictoryPie  innerRadius={105} data={props.data} />
       <VictoryLabel
         textAnchor="middle" verticalAnchor="middle"
         x={200} y={230}
@@ -77,3 +69,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   }
 })
+
+// [
+//   { x: "睡眠", y: 7},
+//   { x: "身支度", y: 1 },
+//   { x: "座学", y: 2 },
+//   { x: "実習", y: 4 },
+//   { x: "レポート作成", y: 2 },
+//   { x: "部活", y: 3 },
+//   { x: "自由", y: 5 }
+// ]

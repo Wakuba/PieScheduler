@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text, TouchableHighlight} from 'react-native';
+import {View,Text, TouchableHighlight,StyleSheet} from 'react-native';
 
 type props = {
   wholeStyle:Object,
@@ -12,7 +12,7 @@ export default function CircleButton(props:props) {
 
   return (
     <TouchableHighlight 
-      style={props.wholeStyle}
+      style={[props.wholeStyle,styles.circleButton]}
       onPress={props.onPress} >
       <View >
   <Text style={props.textStyle}>{props.children}</Text>
@@ -21,3 +21,9 @@ export default function CircleButton(props:props) {
   )
 }
 
+const styles = StyleSheet.create({
+  circleButton:{
+    borderRadius:48,
+    backgroundColor:'#E31676',
+  }
+})

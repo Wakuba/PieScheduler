@@ -1,82 +1,103 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Text,View,StyleSheet} from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
-import { hourArray, minuteArray } from './PickerValue';
+import {Picker} from '@react-native-picker/picker';
+import { SafeAreaView } from 'react-navigation';
+
+let createPickerItem = (acc:Object[],cur,index:number ) => {{
+  acc[acc.length] = <Picker.Item label={String(cur)} value={String(index)} />
+};
+  return acc;
+}
+
+const minuteValue = [...Array(60).keys()].filter(x=>{return x%5==0});
+const minuteArray = minuteValue.reduce(createPickerItem,[]);
+
+const hourValue = [...Array(24).keys()];
+const hourArray = hourValue.reduce(createPickerItem,[]);
+
+type SelectedData = {
+
+}
 
 export default function PickerTab() {
+  
+  const [hourStart,setHourStart] = useState({value:0});
+  const [minuteStart,setMinuteStart] = useState({value:0});
+  const [hourEnd,setHourEnd] = useState({value:0});
+  const [minuteEnd,setMinuteEnd] = useState({value:0});
+  // const selectedTime = pickerProps
+  // const selectedData:SelectedData = {x:, y:}; 
 return (
+  <SafeAreaView>
+  <View>
   <View style={styles.wholePicker}>
-    <Text style={styles.text}>時間</Text>
-    <RNPickerSelect
-      onValueChange={(value) => console.log(value)}
-      items={hourArray}
-      style={pickerSelectStyles}
-      placeholder={{ label: 'hour', value: '' }}
-      Icon={() => (<Text style={styles.pickerToggle}>▼</Text>)}
-    />
+  <Text style={styles.text}>開始</Text>
+    <Picker
+      selectedValue={hourStart}
+      style={styles.picker}
+      onValueChange={(itemValue,itemPosition) => setHourStart(itemValue)}>
+        {hourArray}
+    </Picker>
     <Text style={styles.colon}>:</Text>
-    <RNPickerSelect
-      onValueChange={(value) => console.log(value)}
-      items={minuteArray}
-      style={pickerSelectStyles}
-      placeholder={{ label: 'minute', value: '' }}
-      Icon={() => (<Text style={styles.pickerToggle}>▼</Text>)}
-    />
+    <Picker
+      selectedValue={minuteStart}
+      style={styles.picker}
+      onValueChange={(itemValue,itemPosition) => setMinuteStart(itemValue)}>
+        {minuteArray}
+    </Picker>
   </View>
+  <View style={styles.wholePicker}>
+  <Text style={styles.text}>終了</Text>
+    <Picker
+      selectedValue={hourEnd}
+      style={styles.picker}
+      onValueChange={(itemValue,itemPosition) => setHourEnd(itemValue)}>
+        {hourArray}
+    </Picker>
+    <Text style={styles.colon}>:</Text>
+    <Picker
+      selectedValue={minuteEnd}
+      style={styles.picker}
+      onValueChange={(itemValue,itemPosition) => setMinuteEnd(itemValue)}>
+        {minuteArray}
+    </Picker>
+  </View>
+  </View>
+  </SafeAreaView>
 )
 }
 
 const styles = StyleSheet.create({
-  wholePicker:{
-    // position:'relative',
-    // flex:1,
-    // alignItems:'stretch',
-    // justifyContent:'flex-start',
-    marginVertical:4,
-    // marginLeft:20,
+  wholePicker:{ 
+    // marginVertical:4,
     flexDirection:'row',
   },
   text:{
-    // marginTop:20,
-    fontSize:23,
-    marginHorizontal:10,
-    marginVertical:11,
+    fontSize:25,
+    marginVertical:95,
   },
   colon:{
     fontSize:40,
-    marginHorizontal:10,
+    marginHorizontal:8,
+    marginVertical:11,
+    top:70
   },
   pickerToggle:{
     marginRight:18, 
     marginVertical: 12, 
     fontSize: 20,
     color: '#789' 
-  }
-});
-
-const pickerSelectStyles = StyleSheet.create({
-  inputIOS: {
-    fontSize: 28,
-    paddingVertical: 6,
+  },
+  picker:{
+    // fontSize: 3,
+    paddingVertical: 0,
     paddingRight:20,
-    paddingLeft:9,
+    paddingLeft:6,
     marginHorizontal:10,
-    borderWidth: 1.5,
-    borderColor: '#789',
-    borderRadius: 4,
-    width:120,
-  },
-  inputAndroid: {
-    // fontSize: 16,
-    // // paddingHorizontal: 10,
-    // // paddingVertical: 8,
-    // borderWidth: 0.5,
+    // marginVertical:10,
+    // borderWidth: 1.5,
     // borderColor: '#789',
-    // borderRadius: 8,
-    // // color: 'black',
-    // paddingRight: 30, // to ensure the text is never behind the icon
-    // // width: '50%',
-    // // marginLeft: 10,
-    // backgroundColor:'#eee'
-  },
+    // borderRadius: 4,
+    width:100,
+  }
 });

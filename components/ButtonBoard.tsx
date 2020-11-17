@@ -7,7 +7,7 @@ type Props = {
   onPressMinus:any,
 }
 
-export const ButtonBoard = (props:Props) => {
+export default function ButtonBoard (props:Props) {
   return (
     <View style={styles.container}>
 
@@ -45,8 +45,6 @@ const styles = StyleSheet.create({
     width:80,
     height:80,
     marginHorizontal:15,
-    backgroundColor:'#E31676',
-    borderRadius:48,
     //中身のアイコンのスタイリング
     justifyContent:'center',
     alignItems:'center',
@@ -55,8 +53,6 @@ const styles = StyleSheet.create({
     width:80,
     height:80,
     marginHorizontal:15,
-    backgroundColor:'#E31676',
-    borderRadius:48,
     //中身のアイコンのスタイリング
     justifyContent:'center',
     alignItems:'center',

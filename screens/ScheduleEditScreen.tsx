@@ -1,27 +1,18 @@
-import React , { useState }from 'react';
-import { SafeAreaView,StyleSheet} from 'react-native';
-import PickerTabBoard from '../components/PickerTabBoard';
-import {ButtonBoard} from '../components/ButtonBoard'
+import React from 'react';
+import { SafeAreaView,StyleSheet, TextInput} from 'react-native';
+import PickerTab from '../components/PickerTab';
 
-export const ScheduleEditScreen = () => {
+export default function ScheduleEditScreen () {
   
-  let initialNumber = 1
-  const [tabNumber, setTabNumber] = useState(initialNumber);
-
-  const createNewTab = () => {
-    setTabNumber(prevNumber => {return prevNumber +1 ;})
-}
-  const deleteLastTab = () => {
-    setTabNumber(prevNumber => prevNumber -1)
-  }
-
+  const [textValue,setTextValue] = React.useState('スケジュール名');
   return (
     <SafeAreaView style={styles.container} >
-      <PickerTabBoard tabNumber = {tabNumber}/>
-      <ButtonBoard 
-        onPressPlus={createNewTab} 
-        onPressMinus={deleteLastTab}
-        />
+    <TextInput 
+      style={styles.textInput}
+      value={textValue}
+      onChangeText={textValue => setTextValue(textValue)}
+      />
+      <PickerTab/>
     </SafeAreaView>
   
   );
@@ -32,5 +23,12 @@ const styles = StyleSheet.create({
     flex:1,
     alignItems:'center',
     justifyContent:'center',
+  },
+  textInput:{
+    fontSize:30,
+    color:'rgba(0,0,0,0.3)',
+    width:'60%',
+    height:40,
+    paddingHorizontal:20
   },
 })

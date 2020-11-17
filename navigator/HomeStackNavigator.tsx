@@ -1,11 +1,13 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {HomeClockScreen} from  '../screens/HomeClockScreen';
-import {ScheduleEditScreen} from '../screens/ScheduleEditScreen';
+import HomeClockScreen from  '../screens/HomeClockScreen';
+import WholeEditScreen from '../screens/WholeEditScreen';
+import ScheduleEditScreen from '../screens/ScheduleEditScreen';
 
 const Stack = createStackNavigator();
 
 export const HomeStackNavigator = () => {
+  
   return (
     <Stack.Navigator>
       <Stack.Screen 
@@ -14,7 +16,11 @@ export const HomeStackNavigator = () => {
       />
       <Stack.Screen 
         name='Edit'
-        component={ScheduleEditScreen} 
+        component={WholeEditScreen} 
+      />
+      <Stack.Screen
+        name='PreEdit' 
+        component={ScheduleEditScreen}
       />
     </Stack.Navigator>
   );
