@@ -4,6 +4,7 @@ export function polarToCartesian(
   radius: number,
   angleInDegrees: number
 ) {
+  //度数法をラジアンへ
   const angleInRadians = ((angleInDegrees-180) * Math.PI) / 360.0;
 
   return {

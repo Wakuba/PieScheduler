@@ -6,7 +6,7 @@ import ClockTicks from "./ClockTicks";
 import Hand from "./Hand";
 import { useInterval } from "../helpers/hooks";
 import styled from "styled-components";
-import { VictoryLabel, VictoryPie } from "victory-native";
+import FanShape from "./FanShape";
 
 const { width } = Dimensions.get("window");
 const diameter = width / 2.5;
@@ -26,13 +26,19 @@ export const Clock = (props) => {
   return (
     <View>
     <Svg height={width} width={width}>
-      <VictoryPie  innerRadius={105} data={props.data} />
-      <VictoryLabel
-        textAnchor="middle" verticalAnchor="middle"
-        x={200} y={230}
-        style={{fontSize: 20,fontFamily:"Hiragino Mincho ProN"}}
-        text="タイトル"
-      />
+      <FanShape 
+        startDegree={70}
+        finishDegree={150}
+        color='yellow'
+        />
+      <FanShape 
+        startDegree={200} 
+        finishDegree={240} 
+        color="red" />
+      <FanShape
+        startDegree={253}
+        finishDegree={380}
+        color="green" />
       <ClockTicks
         hours={hourTickCount}
         radius={radius}

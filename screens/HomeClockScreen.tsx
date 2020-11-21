@@ -21,52 +21,54 @@ if ( !firebase.apps.length ) {
   firebase.initializeApp(firebaseConfig);
 }
 
-type PieContents = {
-  name:string;
-  beginningHour:number;
-  beginningMinute:number;
-  terminationHour:number;
-  terminationMinute:number;
-}
+// type PieContents = {
+//   name:string;
+//   beginningHour:number;
+//   beginningMinute:number;
+//   terminationHour:number;
+//   terminationMinute:number;
+// }
 
 export default function HomeClockScreen (props) {
   const theme = useColorScheme() === "dark" ? darkTheme : lightTheme;
-  const [pieDatum,setPieDatum] = useState<PieContents[]>([])
+  // const [pieDatum,setPieDatum] = useState<PieContents[]>([])
 
-    useEffect(() => {
-        getFirebaseItems();
-    },[])
+//     useEffect(() => {
+//         getFirebaseItems();
+//     },[])
 
-    const getFirebaseItems = async() => {
-        const snapshot = await firebase.firestore().collection("pieContents").get();
-        const pieDatum = snapshot.docs.map(doc => doc.data() as PieContents);
-        setPieDatum(pieDatum);
-        // console.log(pieDatum[0]['beginningHour']);
-}
+//     const getFirebaseItems = async() => {
+//         const snapshot = await firebase.firestore().collection("pieContents").get();
+//         const pieDatum = snapshot.docs.map(doc => doc.data() as PieContents);
+//         // setPieDatum(pieDatum);
+//         // console.log(pieDatum[0]['beginningHour']);
+// }
 
-    const timeRatio = 
-    const reduceFunc = (acc,cur,index,Object) => {acc[acc.length] = {x:Object[index]["name"],y:time},acc};
-    const adjustedPieDatum = pieDatum.reduce(reduceFunc,[])
+    // const timeRatio = ( Object[index]["beginningHour"]*60 + Object[index]["beginningMinute"] )
+    //                   -( Object[index]["terminationHour"]*60 + Object[index]["terminationMinute"])
+    // const residualRatio = 
+    // const adjustedPieDatum = pieDatum.reduce((acc,cur,index,Object) => {acc[acc.length] = {x:Object[index]["name"],y:timeRtio,acc},[]);
+
+
     /*
     [{x:"整形外科",y:70},{x:"眼科",y:30},{x:循環器,y:160}]
     */
 
-  return (
-      <ThemeProvider theme={theme}>
-          <StatusBar barStyle="light-content" />
-              <SafeAreaView>
-                  <ScrollView
-                    centerContent={true}
-                    contentInsetAdjustmentBehavior="automatic">
-                      <Clock 
-                      onPress={() => props.navigation.navigate('Edit')}
-                      data={pieDatum}
-                      />
-                    
-                  </ScrollView>
-              </SafeAreaView>
-      </ThemeProvider>
-  );
+    return (
+        <ThemeProvider theme={theme}>
+            <StatusBar barStyle="light-content" />
+                <SafeAreaView>
+                    <ScrollView
+                      centerContent={true}
+                      contentInsetAdjustmentBehavior="automatic">
+                        <Clock 
+                        onPress={() => props.navigation.navigate('Edit')}
+                        // data={adjustedPieDatum}
+                        />
+                    </ScrollView>
+                </SafeAreaView>
+        </ThemeProvider>
+    );
 };
 
 const ScrollView = styled.ScrollView`
