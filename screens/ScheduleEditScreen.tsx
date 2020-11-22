@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView,StyleSheet, TextInput} from 'react-native';
 import PickerTab from '../components/PickerTab';
 
-export default function ScheduleEditScreen () {
+const ScheduleEditScreen = () => {
   
   const [textValue,setTextValue] = React.useState('スケジュール名');
   return (
@@ -32,3 +32,5 @@ const styles = StyleSheet.create({
     paddingHorizontal:20
   },
 })
+
+export default ScheduleEditScreen;
