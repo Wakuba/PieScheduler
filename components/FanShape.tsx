@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Dimensions } from 'react-native';
-import Svg, { Path, } from 'react-native-svg';
+import { Dimensions } from 'react-native';
+import { Path, } from 'react-native-svg';
 
 const { width } = Dimensions.get("window");
 const diameter =width/2.24;
