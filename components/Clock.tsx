@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Button, Dimensions,StyleSheet, View } from "react-native";
+import { Dimensions,View } from "react-native";
 import Svg from "react-native-svg";
 import { getTime } from "../helpers/time";
 import ClockTicks from "./ClockTicks";
 import Hand from "./Hand";
 import { useInterval } from "../helpers/hooks";
-import styled from "styled-components";
 import FanShape from "./FanShape";
+import EditButton from './EditButton'
+
 
 const { width } = Dimensions.get("window");
 const diameter = width / 2.5;
@@ -16,7 +17,7 @@ const hourTickCount = 24;
 
 
 
-export const Clock = (props) => {
+export const Clock = (onPress:any) => {
   let [time, setTime] = useState(getTime);
 
   useInterval(() => {
@@ -57,22 +58,9 @@ export const Clock = (props) => {
       />
       <HoursLine />
     </Svg>
-    <Button
-      onPress={props.onPress}
-      title="編集"
-      style={styles.button}
-      accessibilityLabel="Learn more about this purple button"
-    />
+    <EditButton onPress={onPress} />
   </View>
   );
 };
 
 //ボタンを真ん中にしたいができない
-const styles = StyleSheet.create({
-  button:{
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-})

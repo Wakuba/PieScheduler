@@ -1,11 +1,6 @@
 import React from 'react';
-import { View, Dimensions } from 'react-native';
-import Svg, { Path, } from 'react-native-svg';
-
-const { width } = Dimensions.get("window");
-const diameter =width/2.24;
-const center = width /2;
-const radius = diameter / 2 +12;
+import { Path, } from 'react-native-svg';
+import {diameter,centerWidth,radius} from '../helpers/positionValue'
 
 type Props={
     startDegree:number, 
@@ -16,8 +11,8 @@ type Props={
 export default function FanShape(
     { startDegree, finishDegree, color }:Props
     ) {
-    let cx = center;
-    let cy = center;
+    let cx = centerWidth;
+    let cy = centerWidth;
     let r = diameter;
     //円弧の始まりの座標;
     let startX = cx + r * Math.sin(startDegree / 180 * Math.PI);
