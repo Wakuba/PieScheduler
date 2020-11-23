@@ -29,34 +29,35 @@ const ClockTicks = (props: Props) => {
                 />
         };
 
-        const HourNumber = (props) => {
+        const HourNumber = (props:any) => {
           return <Text 
-                fill='#333'
-                textAnchor="middle"
-                fontSize="13"
-                fontWeight="bold"
-                alignmentBaseline="central"
-                x={time.x}
-                y={time.y}
+                  fill='#333'
+                  textAnchor="middle"
+                  fontSize="13"
+                  fontWeight="bold"
+                  alignmentBaseline="central"
+                  x={time.x}
+                  y={time.y}
                 >
-                  {props.children}
+                    {props.children}
                 </Text>
         }
+
         return (
-          <G key={index}>
-            <HourLine />
-            <HourNumber >
-              {index}
-            </HourNumber>
-          </G>
+            <G key={index}>
+                <HourLine />
+                <HourNumber >
+                    {index}
+                </HourNumber>
+            </G>
         );
     });
 
-  return (
-    <G>
-      {hourSticks}
-    </G>
-  );
+    return (
+        <G>
+            {hourSticks}
+        </G>
+    );
 };
 
 export default ClockTicks;

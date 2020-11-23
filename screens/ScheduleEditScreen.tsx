@@ -19,18 +19,18 @@ const ScheduleEditScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    alignItems:'center',
-    justifyContent:'center',
-  },
-  textInput:{
-    fontSize:30,
-    color:'rgba(0,0,0,0.3)',
-    width:'60%',
-    height:40,
-    paddingHorizontal:20
-  },
+    container:{
+        flex:1,
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    textInput:{
+        fontSize:30,
+        color:'rgba(0,0,0,0.3)',
+        width:'60%',
+        height:40,
+        paddingHorizontal:20
+    },
 })
 
 export default ScheduleEditScreen;

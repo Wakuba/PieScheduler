@@ -4,9 +4,9 @@ import { HomeStackNavigator } from './HomeStackNavigator';
 
 
 export const AppNavigator = ( ) => {
-return (
-  <NavigationContainer>
-    <HomeStackNavigator />
-  </NavigationContainer>
-);
+    return (
+        <NavigationContainer>
+            <HomeStackNavigator />
+        </NavigationContainer>
+    );
 };

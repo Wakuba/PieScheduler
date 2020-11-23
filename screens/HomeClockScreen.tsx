@@ -21,7 +21,7 @@ if ( !firebase.apps.length ) {
 }
 
 
-const HomeClockScreen = (props) => {
+const HomeClockScreen = (props:any) => {
     return (
         <View>
             <StatusBar barStyle="dark-content" />

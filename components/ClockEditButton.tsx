@@ -1,14 +1,19 @@
 import React from 'react';
 import { TouchableOpacity, } from 'react-native-gesture-handler';
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, GestureResponderEvent } from 'react-native'
 import { centerHeight, centerWidth } from '../helpers/positionValue'
 
-const EditButton = (props) => {
+type Props = {
+    onPress:(event: GestureResponderEvent) => void;
+}
+
+const ClockEditButton = (props:Props) => {
     const {onPress} = props;
     return  (
         <TouchableOpacity
         onPress={onPress} 
-        style={styles.buttonBox}>
+        style={styles.buttonBox}
+        >
             <Text style={styles.buttonText}>
                 EDIT
             </Text>
@@ -20,9 +25,7 @@ const EditButton = (props) => {
 
 const styles = StyleSheet.create({
     buttonBox:{
-        // position:'absolute',
         left:centerWidth-20,
-        // bottom:centerHeight-280,
     },
     buttonText:{
         fontSize:20,
@@ -30,4 +33,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default EditButton;
+export default ClockEditButton;
