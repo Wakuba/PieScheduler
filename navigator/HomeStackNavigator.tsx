@@ -10,18 +10,18 @@ export const HomeStackNavigator = () => {
   
   return (
     <Stack.Navigator>
-      <Stack.Screen 
-        name='HomeClock'
-        component={HomeClockScreen}
-      />
-      <Stack.Screen 
-        name='Edit'
-        component={WholeEditScreen} 
-      />
-      <Stack.Screen
-        name='PreEdit' 
-        component={ScheduleEditScreen}
-      />
+        <Stack.Screen 
+          name='HomeClock'
+          component={HomeClockScreen}
+        />
+        <Stack.Screen 
+          name='Edit'
+          component={WholeEditScreen} 
+        />
+        <Stack.Screen
+          name='PreEdit' 
+          component={ScheduleEditScreen}
+        />
     </Stack.Navigator>
   );
 };

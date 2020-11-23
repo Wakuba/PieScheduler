@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, View} from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, View} from "react-native";
 import {Clock} from "../components/Clock";
 
 import * as firebase from 'firebase';
@@ -20,35 +20,35 @@ if ( !firebase.apps.length ) {
   firebase.initializeApp(firebaseConfig);
 }
 
-const HomeClockScreen = (props) => {
 
+const HomeClockScreen = (props) => {
     return (
         <View>
-            <StatusBar barStyle="light-content" />
+            <StatusBar barStyle="dark-content" />
                 <SafeAreaView
-                  style={styles.safeAreaView}>
+                  // style={styles.safeAreaView}
+                  >
                     <ScrollView
                       centerContent={true}
                       contentInsetAdjustmentBehavior="automatic"
-                      style={styles.scrollView}
+                      // style={styles.scrollView}
                       >
                         <Clock 
-                        onPress={() => props.navigation.navigate('Edit')}
-                        />
+                        onPress={ () => { props.navigation.navigate('Edit') } } />
                     </ScrollView>
                 </SafeAreaView>
         </View>
     );
 };
 
-const styles = StyleSheet.create({
-    scrollView:{
+// const styles = StyleSheet.create({
+//     scrollView:{
       
-    },
+//     },
 
-    safeAreaView:{
+//     safeAreaView:{
 
-    }
-})
+//     }
+// })  
 
 export default HomeClockScreen;

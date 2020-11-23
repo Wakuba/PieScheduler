@@ -17,7 +17,8 @@ const hourTickCount = 24;
 
 
 
-export const Clock = (onPress:any) => {
+export const Clock = (props) => {
+  const {onPress} = props
   let [time, setTime] = useState(getTime);
 
   useInterval(() => {
