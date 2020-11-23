@@ -15,6 +15,7 @@ const radius = diameter / 2;
 const hourTickCount = 24;
 
 
+
 export const Clock = (props) => {
   let [time, setTime] = useState(getTime);
 
@@ -22,6 +23,16 @@ export const Clock = (props) => {
     setTime(getTime);
   }, 100);
 
+  const HoursLine = () => {
+    return <Hand
+              angle={time.hours}
+              center={center}
+              radius={radius/0.55}
+              strokeWidth="5"
+              strokeOpacity= "0.5"
+              stroke='#333'
+            />
+  }
 
   return (
     <View>
@@ -44,12 +55,7 @@ export const Clock = (props) => {
         radius={radius}
         center={center}
       />
-      <Hours
-        angle={time.hours}
-        center={center}
-        radius={radius/0.55}
-        strokeWidth="5"
-      />
+      <HoursLine />
     </Svg>
     <Button
       onPress={props.onPress}
@@ -61,11 +67,6 @@ export const Clock = (props) => {
   );
 };
 
-const Hours = styled(Hand).attrs(({ theme }) => ({
-  stroke: theme.primaryColor,
-  strokeOpacity: "0.8",
-}))``;
-
 //ボタンを真ん中にしたいができない
 const styles = StyleSheet.create({
   button:{
@@ -75,13 +76,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   }
 })
-
-// [
-//   { x: "睡眠", y: 7},
-//   { x: "身支度", y: 1 },
-//   { x: "座学", y: 2 },
-//   { x: "実習", y: 4 },
-//   { x: "レポート作成", y: 2 },
-//   { x: "部活", y: 3 },
-//   { x: "自由", y: 5 }
-// ]
