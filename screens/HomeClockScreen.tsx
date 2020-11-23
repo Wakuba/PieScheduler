@@ -1,8 +1,7 @@
-import React,{useEffect,useState} from 'react';
-import { useColorScheme} from "react-native";
+import React from 'react';
+import { SafeAreaView, ScrollView, StatusBar, View} from "react-native";
 import {Clock} from "../components/Clock";
-import styled, { ThemeProvider } from "styled-components/native";
-import { darkTheme, lightTheme } from "../themes";
+
 import * as firebase from 'firebase';
 import "firebase/firestore";
 
@@ -21,66 +20,35 @@ if ( !firebase.apps.length ) {
   firebase.initializeApp(firebaseConfig);
 }
 
-// type PieContents = {
-//   name:string;
-//   beginningHour:number;
-//   beginningMinute:number;
-//   terminationHour:number;
-//   terminationMinute:number;
-// }
 
-export default function HomeClockScreen (props) {
-  const theme = useColorScheme() === "dark" ? darkTheme : lightTheme;
-  // const [pieDatum,setPieDatum] = useState<PieContents[]>([])
-
-//     useEffect(() => {
-//         getFirebaseItems();
-//     },[])
-
-//     const getFirebaseItems = async() => {
-//         const snapshot = await firebase.firestore().collection("pieContents").get();
-//         const pieDatum = snapshot.docs.map(doc => doc.data() as PieContents);
-//         // setPieDatum(pieDatum);
-//         // console.log(pieDatum[0]['beginningHour']);
-// }
-
-    // const timeRatio = ( Object[index]["beginningHour"]*60 + Object[index]["beginningMinute"] )
-    //                   -( Object[index]["terminationHour"]*60 + Object[index]["terminationMinute"])
-    // const residualRatio = 
-    // const adjustedPieDatum = pieDatum.reduce((acc,cur,index,Object) => {acc[acc.length] = {x:Object[index]["name"],y:timeRtio,acc},[]);
-
-
-    /*
-    [{x:"整形外科",y:70},{x:"眼科",y:30},{x:循環器,y:160}]
-    */
-
+const HomeClockScreen = (props:any) => {
     return (
-        <ThemeProvider theme={theme}>
-            <StatusBar barStyle="light-content" />
-                <SafeAreaView>
+        <View>
+            <StatusBar barStyle="dark-content" />
+                <SafeAreaView
+                  // style={styles.safeAreaView}
+                  >
                     <ScrollView
                       centerContent={true}
-                      contentInsetAdjustmentBehavior="automatic">
+                      contentInsetAdjustmentBehavior="automatic"
+                      // style={styles.scrollView}
+                      >
                         <Clock 
-                        onPress={() => props.navigation.navigate('Edit')}
-                        // data={adjustedPieDatum}
-                        />
+                        onPress={ () => { props.navigation.navigate('Edit') } } />
                     </ScrollView>
                 </SafeAreaView>
-        </ThemeProvider>
+        </View>
     );
 };
 
-const ScrollView = styled.ScrollView`
-  flex: 1;
-  background-color: ${({ theme }) => theme.bgColor};
-`;
+// const styles = StyleSheet.create({
+//     scrollView:{
+      
+//     },
 
-const SafeAreaView = styled.SafeAreaView`
-  background-color: ${({ theme }) => theme.bgColor};
-  flex: 1;
-`;
+//     safeAreaView:{
 
-const StatusBar = styled.StatusBar.attrs(({ theme }) => ({
-  barStyle: theme.style === "dark" ? "light-content" : "dark-content",
-}))``;
+//     }
+// })  
+
+export default HomeClockScreen;
