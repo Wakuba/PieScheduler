@@ -1,8 +1,7 @@
-import React,{useEffect,useState} from 'react';
-import { useColorScheme} from "react-native";
+import React from 'react';
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, View} from "react-native";
 import {Clock} from "../components/Clock";
-import styled, { ThemeProvider } from "styled-components/native";
-import { darkTheme, lightTheme } from "../themes";
+
 import * as firebase from 'firebase';
 import "firebase/firestore";
 
@@ -21,37 +20,35 @@ if ( !firebase.apps.length ) {
   firebase.initializeApp(firebaseConfig);
 }
 
-export default function HomeClockScreen (props) {
-  const theme = useColorScheme() === "dark" ? darkTheme : lightTheme;
-
+const HomeClockScreen = (props) => {
 
     return (
-        <ThemeProvider theme={theme}>
+        <View>
             <StatusBar barStyle="light-content" />
-                <SafeAreaView>
+                <SafeAreaView
+                  style={styles.safeAreaView}>
                     <ScrollView
                       centerContent={true}
-                      contentInsetAdjustmentBehavior="automatic">
+                      contentInsetAdjustmentBehavior="automatic"
+                      style={styles.scrollView}
+                      >
                         <Clock 
                         onPress={() => props.navigation.navigate('Edit')}
-                        // data={adjustedPieDatum}
                         />
                     </ScrollView>
                 </SafeAreaView>
-        </ThemeProvider>
+        </View>
     );
 };
 
-const ScrollView = styled.ScrollView`
-  flex: 1;
-  background-color: ${({ theme }) => theme.bgColor};
-`;
+const styles = StyleSheet.create({
+    scrollView:{
+      
+    },
 
-const SafeAreaView = styled.SafeAreaView`
-  background-color: ${({ theme }) => theme.bgColor};
-  flex: 1;
-`;
+    safeAreaView:{
 
-const StatusBar = styled.StatusBar.attrs(({ theme }) => ({
-  barStyle: theme.style === "dark" ? "light-content" : "dark-content",
-}))``;
+    }
+})
+
+export default HomeClockScreen;

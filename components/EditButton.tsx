@@ -3,10 +3,11 @@ import { TouchableOpacity, } from 'react-native-gesture-handler';
 import { Text, StyleSheet } from 'react-native'
 import { centerHeight, centerWidth } from '../helpers/positionValue'
 
-const EditButton = (onPress:any) => {
+const EditButton = (onPress) => {
     return  (
         <TouchableOpacity
-        onPress={onPress} style={styles.buttonBox}>
+        onPress={onPress} 
+        style={styles.buttonBox}>
             <Text style={styles.buttonText}>
                 EDIT
             </Text>
@@ -25,7 +26,6 @@ const styles = StyleSheet.create({
     buttonText:{
         fontSize:20,
         color:'blue',
-
     }
 })
 

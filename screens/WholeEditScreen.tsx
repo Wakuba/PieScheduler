@@ -4,15 +4,12 @@ import { View,StyleSheet } from 'react-native';
 import EditPartsBoard from '../components/EditPartsBoard';
 import CircleButton from '../components/CircleButton'
 
-export default function WholeEditScreen() {
+const WholeEditScreen = () => {
   const [partNumber,setPartNumber] = React.useState(1)
 
   const createNewParts = () => {
     setPartNumber(prevNumber => {return prevNumber +1 ;})
 }
-  // const deleteLastTab = () => {
-  //   setPartNumber(prevNumber => {return prevNumber==1 ?prevNumber : prevNumber -1 ;})
-  // }
 
   return (
     <View style={styles.container} >
@@ -44,3 +41,5 @@ const styles=StyleSheet.create({
     flexDirection:'row',
   }
 })
+
+export default WholeEditScreen;

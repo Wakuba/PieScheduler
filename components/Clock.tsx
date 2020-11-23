@@ -62,5 +62,3 @@ export const Clock = (onPress:any) => {
   </View>
   );
 };
-
-//ボタンを真ん中にしたいができない
