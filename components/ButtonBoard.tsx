@@ -1,20 +1,16 @@
 import React from 'react';
-import CircleButton from './CircleButton'
+import CircleButton from './PlaneButton'
 import { View , StyleSheet} from 'react-native';
 
-type Props = {
-  onPressPlus:any,
-  onPressMinus:any,
-}
-
-export default function ButtonBoard (props:Props) {
+export default function ButtonBoard (props) {
+  const {onPressPlus,onPressMinus} = props;
   return (
     <View style={styles.container}>
 
       <CircleButton
         wholeStyle={styles.plusButton} 
         textStyle={styles.circleButtonItem1}
-        onPress={props.onPressPlus} 
+        onPress={onPressPlus} 
         >
         +
       </CircleButton>
@@ -22,7 +18,7 @@ export default function ButtonBoard (props:Props) {
       <CircleButton
         wholeStyle={styles.minusButton} 
         textStyle={styles.circleButtonItem2}
-        onPress={props.onPressMinus}
+        onPress={onPressMinus}
         >
         -
       </CircleButton>

@@ -1,19 +1,20 @@
 import React from 'react';
 import { View,Text,StyleSheet } from 'react-native';
-import CircleButton from './CircleButton'
+import PlaneButton from './PlaneButton'
 
 export default function EditParts(props) {
+  const {onPressEdit,onPressDel} = props
   return (
     <View style={styles.container}>
         <Text style={styles.text}>渡ってくるデータ</Text>
-        <CircleButton 
+        <PlaneButton 
           wholeStyle={styles.editButton} 
           textStyle={styles.textStyle} 
-          onPress={props.onPress} > 編集 </CircleButton>
-        <CircleButton 
+          onPress={onPressEdit} > 編集 </PlaneButton>
+        <PlaneButton 
           wholeStyle={styles.delButton} 
           textStyle={styles.textStyle} 
-          onPress={props.onPress} > 削除 </CircleButton>
+          onPress={onPressDel} > 削除 </PlaneButton>
     </View>
 
   )

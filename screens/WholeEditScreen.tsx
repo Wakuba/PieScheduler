@@ -1,23 +1,20 @@
 import React from 'react';
 import { View,StyleSheet } from 'react-native';
 // import ButtonBoard from '../components/ButtonBoard'
-import EditPartsBoard from '../components/EditPartsBoard';
-import CircleButton from '../components/CircleButton'
+import EditParts from '../components/EditParts';
+import CircleButton from '../components/PlaneButton'
 
-const WholeEditScreen = () => {
-  const [partNumber,setPartNumber] = React.useState(1)
-
-  const createNewParts = () => {
-    setPartNumber(prevNumber => {return prevNumber +1 ;})
-}
-
+const WholeEditScreen = (props) => {
+  const {navigation} = props
   return (
     <View style={styles.container} >
-    <EditPartsBoard partNumber={partNumber}/>
+    <EditParts
+      onPressEdit={() => {navigation.navigate('PreEdit')}}
+      onPressDel={console.log('Not yet')} />
     <CircleButton 
       textStyle={styles.text}
       wholeStyle={styles.whole}
-      onPress={createNewParts}>+</CircleButton>
+      onPress={console.log('Sorry')}>+</CircleButton>
     </View>
   )
 }
