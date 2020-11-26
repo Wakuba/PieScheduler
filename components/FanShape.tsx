@@ -1,15 +1,6 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
-import { Path, } from 'react-native-svg';
-
-const { width } = Dimensions.get("window");
-const diameter =width/2.24;
-const center = width /2;
-const radius = diameter / 2 +12;
-=======
 import { Path, } from 'react-native-svg';
 import {diameter,centerWidth,radius} from '../helpers/positionValue'
->>>>>>> tmpMaster
 
 type Props={
     startDegree:number, 
