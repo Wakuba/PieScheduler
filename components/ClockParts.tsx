@@ -10,7 +10,7 @@ const radius = diameter / 2;
 const hourTickCount = 24;
 
 export const HoursLine = () => {
-    let [time, setTime] = useState(getTime);
+    const [time, setTime] = useState(getTime);
 
     useInterval(() => {
       setTime(getTime);
