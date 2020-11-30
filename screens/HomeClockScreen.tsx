@@ -31,7 +31,7 @@ const HomeClockScreen = (props:any) => {
                 <SafeAreaView
                 >
                     <ScrollView
-                      centerContent={true}
+                      centerContent
                       contentInsetAdjustmentBehavior="automatic"
                       // style={styles.scrollView}
                     >
