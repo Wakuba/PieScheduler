@@ -23,17 +23,16 @@ const Hand = (props: Props) => {
 
     const { x, y } = polarToCartesian(center, center, radius, angle);
 
-    //時計の中心
     return (
         <Line
-          x1={center}
-          y1={center}
-          x2={x}
-          y2={y}
-          strokeWidth={strokeWidth}
-          strokeLinecap="round"
-          strokeOpacity={strokeOpacity}
-          stroke={stroke}
+        x1={center}
+        y1={center}
+        x2={x}
+        y2={y}
+        strokeWidth={strokeWidth}
+        strokeLinecap="round"
+        strokeOpacity={strokeOpacity}
+        stroke={stroke}
         />
     );
 };

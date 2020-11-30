@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, StatusBar, View} from "react-native";
 import { Clock, HoursLine} from "../components/ClockParts";
-import { width, centerWidth,centerHeight} from '../helpers/positionValue'
+import { width, centerWidth} from '../helpers/positionValue'
 import * as firebase from 'firebase';
 import "firebase/firestore";
 import FanShape from '../components/FanShape';
@@ -29,7 +29,6 @@ const HomeClockScreen = (props:any) => {
         <View>
             <StatusBar barStyle="dark-content" />
                 <SafeAreaView
-                  // style={styles.safeAreaView}
                 >
                     <ScrollView
                       centerContent={true}
@@ -62,15 +61,5 @@ const HomeClockScreen = (props:any) => {
         </View>
     );
 };
-
-// const styles = StyleSheet.create({
-//     scrollView:{
-      
-//     },
-
-//     safeAreaView:{
-
-//     }
-// })  
 
 export default HomeClockScreen;

@@ -3,9 +3,9 @@ import { G, Line, Text } from "react-native-svg";
 import { polarToCartesian } from "../helpers/geometry";
 
 type Props = {
-  radius: number;
-  center: number;
-  hours: number;
+    radius: number;
+    center: number;
+    hours: number;
 };
 
 const ClockTicks = (props: Props) => {
@@ -18,7 +18,7 @@ const ClockTicks = (props: Props) => {
         const time = polarToCartesian(center, center, radius - 27, index * 30);
 
         const HourLine = () => {
-          return <Line 
+            return <Line 
                 stroke="#333"
                 strokeWidth={3}
                 strokeLinecap="round"
@@ -30,15 +30,15 @@ const ClockTicks = (props: Props) => {
         };
 
         const HourNumber = (props:any) => {
-          return <Text 
-                  fill='#333'
-                  textAnchor="middle"
-                  fontSize="13"
-                  fontWeight="bold"
-                  alignmentBaseline="central"
-                  x={time.x}
-                  y={time.y}
-                >
+            return <Text 
+                    fill='#333'
+                    textAnchor="middle"
+                    fontSize="13"
+                    fontWeight="bold"
+                    alignmentBaseline="central"
+                    x={time.x}
+                    y={time.y}
+                    >
                     {props.children}
                 </Text>
         }
