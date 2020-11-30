@@ -13,13 +13,16 @@ export default function EditParts(props:Props) {
         <View style={styles.container}>
             <Text style={styles.text}>渡ってくるデータ</Text>
             <PlaneButton 
-              wholeStyle={styles.editButton} 
-              textStyle={styles.textStyle} 
-              onPress={onPressEdit} > 編集 </PlaneButton>
+            wholeStyle={styles.editButton} 
+            textStyle={styles.textStyle} 
+            onPress={onPressEdit} > 編集 </PlaneButton>
             <PlaneButton 
-              wholeStyle={styles.delButton} 
-              textStyle={styles.textStyle} 
-              onPress={onPressDel} > 削除 </PlaneButton>
+            wholeStyle={styles.delButton} 
+            textStyle={styles.textStyle} 
+            onPress={onPressDel} 
+            > 
+                削除 
+            </PlaneButton>
         </View>
 
     )

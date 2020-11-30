@@ -12,18 +12,18 @@ export default function ButtonBoard (props:Props) {
     return (
         <View style={styles.container}>
             <CircleButton
-              wholeStyle={styles.plusButton} 
-              textStyle={styles.circleButtonItem1}
-              onPress={onPressPlus} 
+            wholeStyle={styles.plusButton} 
+            textStyle={styles.circleButtonItem1}
+            onPress={onPressPlus} 
             >
-              +
+            +
             </CircleButton>
             <CircleButton
-              wholeStyle={styles.minusButton} 
-              textStyle={styles.circleButtonItem2}
-              onPress={onPressMinus}
+            wholeStyle={styles.minusButton} 
+            textStyle={styles.circleButtonItem2}
+            onPress={onPressMinus}
             >
-              -
+            -
             </CircleButton>
         </View>
 
@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
         width:80,
         height:80,
         marginHorizontal:15,
-        //中身のアイコンのスタイリング
         justifyContent:'center',
         alignItems:'center',
     },
@@ -51,7 +50,6 @@ const styles = StyleSheet.create({
         width:80,
         height:80,
         marginHorizontal:15,
-        //中身のアイコンのスタイリング
         justifyContent:'center',
         alignItems:'center',
     },

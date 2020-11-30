@@ -34,7 +34,6 @@ const styles=StyleSheet.create({
         width:80,
         height:80,
         marginHorizontal:15,
-        //中身のアイコンのスタイリング
         position:'absolute',
         right:32,
         bottom:32,

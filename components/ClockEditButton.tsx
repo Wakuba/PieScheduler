@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, } from 'react-native-gesture-handler';
 import { Text, StyleSheet, GestureResponderEvent } from 'react-native'
-import { centerHeight, centerWidth } from '../helpers/positionValue'
+import { centerWidth } from '../helpers/positionValue'
 
 type Props = {
     onPress:(event: GestureResponderEvent) => void;

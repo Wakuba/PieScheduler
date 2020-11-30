@@ -19,51 +19,49 @@ type SelectedData = {
 }
 
 export default function PickerTab() {
-  
-  const [hourStart,setHourStart] = useState({value:0});
-  const [minuteStart,setMinuteStart] = useState({value:0});
-  const [hourEnd,setHourEnd] = useState({value:0});
-  const [minuteEnd,setMinuteEnd] = useState({value:0});
-  // const selectedTime = pickerProps
-  // const selectedData:SelectedData = {x:, y:}; 
-  return (
-      <SafeAreaView>
-      <View>
-          <View style={styles.wholePicker}>
-              <Text style={styles.text}>開始</Text>
-              <Picker
-                selectedValue={hourStart}
-                style={styles.picker}
-                onValueChange={(itemValue,itemPosition) => setHourStart(itemValue)}>
-                  {hourArray}
-              </Picker>
-              <Text style={styles.colon}>:</Text>
-              <Picker
-                selectedValue={minuteStart}
-                style={styles.picker}
-                onValueChange={(itemValue,itemPosition) => setMinuteStart(itemValue)}>
-                  {minuteArray}
-              </Picker>
-          </View>
-          <View style={styles.wholePicker}>
-              <Text style={styles.text}>終了</Text>
-              <Picker
-                selectedValue={hourEnd}
-                style={styles.picker}
-                onValueChange={(itemValue,itemPosition) => setHourEnd(itemValue)}>
-                  {hourArray}
-              </Picker>
-              <Text style={styles.colon}>:</Text>
-              <Picker
-                selectedValue={minuteEnd}
-                style={styles.picker}
-                onValueChange={(itemValue,itemPosition) => setMinuteEnd(itemValue)}>
-                  {minuteArray}
-              </Picker>
-          </View>
-      </View>
-      </SafeAreaView>
-  )
+
+    const [hourStart,setHourStart] = useState({value:0});
+    const [minuteStart,setMinuteStart] = useState({value:0});
+    const [hourEnd,setHourEnd] = useState({value:0});
+    const [minuteEnd,setMinuteEnd] = useState({value:0});
+    return (
+        <SafeAreaView>
+        <View>
+            <View style={styles.wholePicker}>
+                <Text style={styles.text}>開始</Text>
+                <Picker
+                    selectedValue={hourStart}
+                    style={styles.picker}
+                    onValueChange={(itemValue,itemPosition) => setHourStart(itemValue)}>
+                    {hourArray}
+                </Picker>
+                <Text style={styles.colon}>:</Text>
+                <Picker
+                    selectedValue={minuteStart}
+                    style={styles.picker}
+                    onValueChange={(itemValue,itemPosition) => setMinuteStart(itemValue)}>
+                    {minuteArray}
+                </Picker>
+            </View>
+            <View style={styles.wholePicker}>
+                <Text style={styles.text}>終了</Text>
+                <Picker
+                    selectedValue={hourEnd}
+                    style={styles.picker}
+                    onValueChange={(itemValue,itemPosition) => setHourEnd(itemValue)}>
+                    {hourArray}
+                </Picker>
+                <Text style={styles.colon}>:</Text>
+                <Picker
+                    selectedValue={minuteEnd}
+                    style={styles.picker}
+                    onValueChange={(itemValue,itemPosition) => setMinuteEnd(itemValue)}>
+                    {minuteArray}
+                </Picker>
+            </View>
+        </View>
+        </SafeAreaView>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -78,7 +76,7 @@ const styles = StyleSheet.create({
         fontSize:40,
         marginHorizontal:8,
         marginVertical:11,
-      top:70
+    top:70
     },
     pickerToggle:{
         marginRight:18, 

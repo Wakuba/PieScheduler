@@ -1,9 +1,12 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, StatusBar, View} from "react-native";
-import {Clock} from "../components/Clock";
-
+import { Clock, HoursLine} from "../components/ClockParts";
+import { width, centerWidth} from '../helpers/positionValue'
 import * as firebase from 'firebase';
 import "firebase/firestore";
+import FanShape from '../components/FanShape';
+import { Svg,Text } from 'react-native-svg';
+import ClockEditButton from '../components/ClockEditButton';
 
 if ( !firebase.apps.length ) {
   const firebaseConfig = {
@@ -26,29 +29,37 @@ const HomeClockScreen = (props:any) => {
         <View>
             <StatusBar barStyle="dark-content" />
                 <SafeAreaView
-                  // style={styles.safeAreaView}
-                  >
+                >
                     <ScrollView
-                      centerContent={true}
+                      centerContent
                       contentInsetAdjustmentBehavior="automatic"
                       // style={styles.scrollView}
-                      >
-                        <Clock 
-                        onPress={ () => { props.navigation.navigate('Edit') } } />
+                    >
+                        <Svg height={width} width={width}>
+                            <Text x={centerWidth-22} y={width/2-20} stroke="none" fill="blue" fontSize="20">テスト</Text>
+                            <FanShape 
+                              startDegree={70}
+                              finishDegree={150}
+                              color='yellow'
+                            />
+                            <FanShape 
+                              startDegree={200} 
+                              finishDegree={240} 
+                              color="red" 
+                            />
+                            <FanShape
+                              startDegree={253}
+                              finishDegree={380}
+                              color="green" 
+                            />
+                            <Clock />
+                            <HoursLine />
+                        </Svg>
+                        <ClockEditButton onPress={() => { props.navigation.navigate('Edit')}} />
                     </ScrollView>
                 </SafeAreaView>
         </View>
     );
 };
-
-// const styles = StyleSheet.create({
-//     scrollView:{
-      
-//     },
-
-//     safeAreaView:{
-
-//     }
-// })  
 
 export default HomeClockScreen;
