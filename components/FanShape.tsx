@@ -43,6 +43,7 @@ export default function FanShape(
                 A${outerRadius},${outerRadius} 0 ${largeArcFlag} 0 ${startX},${startY} 
                 Z`} 
             fill={`${color}`} 
+            fillOpacity="0.5"
             stroke="blue" 
             stroke-width="30" />
     };

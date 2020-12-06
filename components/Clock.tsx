@@ -31,7 +31,6 @@ export const Clock = (props) => {
               center={center}
               radius={radius/0.55}
               strokeWidth="5"
-              strokeOpacity= "0.5"
               stroke='#333'
             />
   }
