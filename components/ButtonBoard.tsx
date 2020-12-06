@@ -7,7 +7,7 @@ type Props = {
     onPressMinus:(event: GestureResponderEvent) => void;
 }
 
-export default function ButtonBoard (props:Props) {
+const ButtonBoard = (props:Props) => {
     const {onPressPlus,onPressMinus} = props;
     return (
         <View style={styles.container}>
@@ -61,3 +61,5 @@ const styles = StyleSheet.create({
     circleButtonItem2:{
         fontSize:60,}
 })
+
+export default ButtonBoard;
