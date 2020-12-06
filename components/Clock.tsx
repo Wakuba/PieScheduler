@@ -7,15 +7,9 @@ import Hand from "./Hand";
 import { useInterval } from "../helpers/hooks";
 import FanShape from "./FanShape";
 import EditButton from './EditButton'
+import {center, radius, height, width} from '../helpers/positionValue'
 
-
-const { width } = Dimensions.get("window");
-const diameter = width / 2.5;
-const center = width /2;
-const radius = diameter / 2;
 const hourTickCount = 24;
-
-
 
 export const Clock = (props) => {
   const {onPress} = props

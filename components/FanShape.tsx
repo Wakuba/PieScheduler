@@ -1,6 +1,6 @@
 import React from 'react';
 import { Path, } from 'react-native-svg';
-import {diameter,centerWidth,radius} from '../helpers/positionValue'
+import {outerRadius,innerRadius, centerWidth,} from '../helpers/positionValue'
 
 type Props={
     startDegree:number, 
@@ -13,7 +13,6 @@ export default function FanShape(
     ) {
     let cx = centerWidth;
     let cy = centerWidth;
-    let outerRadius = diameter;
 
     //円弧の始まりの座標;
     let startX = cx + outerRadius * Math.sin(startDegree / 180 * Math.PI);
@@ -27,7 +26,6 @@ export default function FanShape(
     let largeArcFlag = (finishDegree - startDegree <= 180) ? 0 : 1;
     
     //内円
-    let innerRadius = radius
     let innerStartX = cx + innerRadius * Math.sin(startDegree / 180 * Math.PI);
     let innerStartY = cy - innerRadius * Math.cos(startDegree / 180 * Math.PI);
     
