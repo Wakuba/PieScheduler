@@ -80,8 +80,8 @@ export const Clock = (props) => {
         <Picker.Item label="orange" value="orange" />
     </Picker>
     </View>
-    <Svg height={width} width={width}>
-    
+
+    <Svg height={width} width={width} style={{marginTop:100}}>
       <FanShape 
         startDegree={startAngle}
         finishDegree={finishAngle}
