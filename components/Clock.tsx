@@ -90,11 +90,13 @@ export const Clock = (props) => {
       <FanShape 
         startDegree={200} 
         finishDegree={240} 
-        color="red" />
+        color="red" 
+      />
       <FanShape
-        startDegree={253}
+        startDegree={243}
         finishDegree={380}
-        color="green" />
+        color="green" 
+      />
       <ClockTicks
         hours={hourTickCount}
         radius={radius}
