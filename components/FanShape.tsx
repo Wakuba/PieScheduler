@@ -15,23 +15,23 @@ export default function FanShape(
     let cy = centerWidth;
 
     //円弧の始まりの座標;
-    let startX = cx + outerRadius * Math.sin(startDegree / 180 * Math.PI);
-    let startY = cy - outerRadius * Math.cos(startDegree / 180 * Math.PI);
+    let startX = cx + outerRadius * Math.sin((startDegree+90) / 180 * Math.PI);
+    let startY = cy - outerRadius * Math.cos((startDegree+90) / 180 * Math.PI);
 
     //円弧の終わり座標;
-    let outerFinishX = cx + outerRadius * Math.sin(finishDegree / 180 * Math.PI);
-    let outerFinishY = cy - outerRadius * Math.cos(finishDegree / 180 * Math.PI);
+    let outerFinishX = cx + outerRadius * Math.sin((finishDegree+90) / 180 * Math.PI);
+    let outerFinishY = cy - outerRadius * Math.cos((finishDegree+90) / 180 * Math.PI);
 
     //扇形の角度が180度を超えているか;
-    let largeArcFlag = (finishDegree - startDegree <= 180) ? 0 : 1;
+    let largeArcFlag = ((finishDegree+90) - (startDegree+90) <= 180) ? 0 : 1;
     
     //内円
-    let innerStartX = cx + innerRadius * Math.sin(startDegree / 180 * Math.PI);
-    let innerStartY = cy - innerRadius * Math.cos(startDegree / 180 * Math.PI);
+    let innerStartX = cx + innerRadius * Math.sin((startDegree+90) / 180 * Math.PI);
+    let innerStartY = cy - innerRadius * Math.cos((startDegree+90) / 180 * Math.PI);
     
     //円弧の終わり座標;
-    let innerFinishX = cx + innerRadius * Math.sin(finishDegree / 180 * Math.PI);
-    let innerFinishY = cy - innerRadius * Math.cos(finishDegree / 180 * Math.PI);
+    let innerFinishX = cx + innerRadius * Math.sin((finishDegree+90) / 180 * Math.PI);
+    let innerFinishY = cy - innerRadius * Math.cos((finishDegree+90) / 180 * Math.PI);
     
     //円弧を描くコマンド;
     return <Path 

@@ -40,36 +40,33 @@ export const Clock = (props) => {
     <Picker
     selectedValue={startAngle}
     style={{height: 50, width: 100}}
-    onValueChange={(itemValue) =>
-        setStartAngle(itemValue)}
+    onValueChange={(itemValue)=>{let itemValueSetter = Number(itemValue); setStartAngle(itemValueSetter)}}
     >
-        <Picker.Item label="40" value="40" />
-        <Picker.Item label="70" value="70" />
-        <Picker.Item label="100" value="100" />
-        <Picker.Item label="130" value="130" />
-        <Picker.Item label="160" value="160" />
-        <Picker.Item label="190" value="190" />
-        <Picker.Item label="210" value="210" />
+        <Picker.Item label="40" value={40} />
+        <Picker.Item label="70" value={70} />
+        <Picker.Item label="100" value={100} />
+        <Picker.Item label="130" value={130} />
+        <Picker.Item label="160" value={160} />
+        <Picker.Item label="190" value={190} />
+        <Picker.Item label="210" value={210} />
     </Picker>
     <Picker
     selectedValue={finishAngle}
     style={{height: 50, width: 100,}}
-    onValueChange={(itemValue) =>
-        setFinishAngle(itemValue)
+    onValueChange={(itemValue) =>{let itemValueSetter = Number(itemValue); setFinishAngle(itemValueSetter)}
     }>
-        <Picker.Item label="70" value="70" />
-        <Picker.Item label="100" value="100" />
-        <Picker.Item label="130" value="130" />
-        <Picker.Item label="160" value="160" />
-        <Picker.Item label="190" value="190" />
-        <Picker.Item label="210" value="210" />
-        <Picker.Item label="240" value="240" />
+        <Picker.Item label="70" value={70} />
+        <Picker.Item label="100" value={100} />
+        <Picker.Item label="130" value={130} />
+        <Picker.Item label="160" value={160} />
+        <Picker.Item label="190" value={190} />
+        <Picker.Item label="210" value={210} />
+        <Picker.Item label="240" value={240} />
     </Picker>
     <Picker
     selectedValue={color}
     style={{height: 50, width: 100,}}
-    onValueChange={(itemValue) =>
-        setColor(itemValue)
+    onValueChange={(itemValue) =>{let itemValueSetter = String(itemValue); setColor(itemValueSetter)}
     }>
         <Picker.Item label="yellow" value="yellow" />
         <Picker.Item label="green" value="green" />
@@ -81,7 +78,7 @@ export const Clock = (props) => {
     </Picker>
     </View>
 
-    <Svg height={width} width={width} style={{marginTop:100}}>
+    <Svg height={width} width={width} style={{marginTop:150}}>
       <FanShape 
         startDegree={startAngle}
         finishDegree={finishAngle}
