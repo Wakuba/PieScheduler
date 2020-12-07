@@ -8,12 +8,17 @@ import { useInterval } from "../helpers/hooks";
 import FanShape from "./FanShape";
 import EditButton from './EditButton'
 import {center, radius, height, width} from '../helpers/positionValue'
+import {Picker} from '@react-native-picker/picker';
+
 
 const hourTickCount = 24;
 
 export const Clock = (props) => {
   const {onPress} = props
-  let [time, setTime] = useState(getTime);
+  const [time, setTime] = useState(getTime);
+  const [startAngle, setStartAngle] = useState(40)
+  const [finishAngle, setFinishAngle] = useState(70)
+  const [color, setColor] = useState("yellow")
 
   useInterval(() => {
     setTime(getTime);
@@ -31,11 +36,56 @@ export const Clock = (props) => {
 
   return (
     <View>
+      <View style={{flexDirection:'row'}}>
+    <Picker
+    selectedValue={startAngle}
+    style={{height: 50, width: 100}}
+    onValueChange={(itemValue) =>
+        setStartAngle(itemValue)}
+    >
+        <Picker.Item label="40" value="40" />
+        <Picker.Item label="70" value="70" />
+        <Picker.Item label="100" value="100" />
+        <Picker.Item label="130" value="130" />
+        <Picker.Item label="160" value="160" />
+        <Picker.Item label="190" value="190" />
+        <Picker.Item label="210" value="210" />
+    </Picker>
+    <Picker
+    selectedValue={finishAngle}
+    style={{height: 50, width: 100,}}
+    onValueChange={(itemValue) =>
+        setFinishAngle(itemValue)
+    }>
+        <Picker.Item label="70" value="70" />
+        <Picker.Item label="100" value="100" />
+        <Picker.Item label="130" value="130" />
+        <Picker.Item label="160" value="160" />
+        <Picker.Item label="190" value="190" />
+        <Picker.Item label="210" value="210" />
+        <Picker.Item label="240" value="240" />
+    </Picker>
+    <Picker
+    selectedValue={color}
+    style={{height: 50, width: 100,}}
+    onValueChange={(itemValue) =>
+        setColor(itemValue)
+    }>
+        <Picker.Item label="yellow" value="yellow" />
+        <Picker.Item label="green" value="green" />
+        <Picker.Item label="red" value="red" />
+        <Picker.Item label="blue" value="blue" />
+        <Picker.Item label="black" value="black" />
+        <Picker.Item label="white" value="white" />
+        <Picker.Item label="orange" value="orange" />
+    </Picker>
+    </View>
     <Svg height={width} width={width}>
+    
       <FanShape 
-        startDegree={70}
-        finishDegree={150}
-        color='yellow'
+        startDegree={startAngle}
+        finishDegree={finishAngle}
+        color={color}
         />
       <FanShape 
         startDegree={200} 
@@ -53,6 +103,7 @@ export const Clock = (props) => {
       <HoursLine />
     </Svg>
     <EditButton onPress={onPress} />
+
   </View>
   );
 };
