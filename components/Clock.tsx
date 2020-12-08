@@ -78,22 +78,32 @@ export const Clock = (props) => {
     </Picker>
     </View>
 
-    <Svg height={width} width={width} style={{marginTop:150}}>
+    <Svg height={width} width={width} style={{marginTop:100}}>
       <FanShape 
         startDegree={startAngle}
         finishDegree={finishAngle}
         color={color}
-        />
+        >実習</FanShape>
       <FanShape 
         startDegree={200} 
         finishDegree={240} 
         color="red" 
-      />
+      >カテキョ</FanShape>
       <FanShape
-        startDegree={243}
-        finishDegree={380}
+        startDegree={270}
+        finishDegree={360}
+        color="purple" 
+      >就寝</FanShape>
+      <FanShape
+        startDegree={0}
+        finishDegree={30}
         color="green" 
-      />
+      >自習</FanShape>
+       <FanShape
+        startDegree={240}
+        finishDegree={270}
+        color="blue" 
+      >自由時間</FanShape>
       <ClockTicks
         hours={hourTickCount}
         radius={radius}

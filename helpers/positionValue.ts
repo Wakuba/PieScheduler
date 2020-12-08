@@ -1,4 +1,4 @@
-import { Dimensions } from "react-native";
+import { Dimensions,Platform, PixelRatio } from "react-native";
 
 export const { width, height } = Dimensions.get("window");
 
@@ -14,3 +14,13 @@ export const radius = diameter / 2;
 //shared position
 export const centerWidth = width /2;
 export const centerHeight = height / 2;
+
+const fontScale = width / 880
+export const adjustableScale = (size:number) => {
+    const newSize = size * fontScale 
+    if (Platform.OS === 'ios') {
+    return Math.round(PixelRatio.roundToNearestPixel(newSize))
+    } else {
+    return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
+    }
+}
