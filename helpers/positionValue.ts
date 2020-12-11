@@ -24,3 +24,5 @@ export const adjustableScale = (size:number) => {
     return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
     }
 }
+
+
